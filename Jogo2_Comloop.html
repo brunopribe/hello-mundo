@@ -1,0 +1,58 @@
+<meta charset="UTF-8">
+
+<h1> JOGO DESCUBRA O NÚMERO DE 1 A 10 :) </h1><br>
+
+<script>
+
+// COMEÇO  // CONDIÇÃO   //  PASSO
+
+
+
+function mostra(FRASE) {
+	document.write(FRASE)
+}
+
+function pulaLinha() {
+	document.write("<br><br>")
+}
+
+var RespostaUsuario = prompt ("Adivinhe um número de 1 a 10. Você tem 3 chances!")
+
+var chance = 1
+
+while (chance <= 3) {
+	chance = chance + 1
+	var NUM = Math.round( Math.random()*10)
+
+
+	if (!isNaN(RespostaUsuario) && RespostaUsuario <= 10 && RespostaUsuario >= 1) {
+
+		if (RespostaUsuario == NUM) {
+			var $title = document.querySelector ("h1")
+			$title. style.color = "green"
+			mostra("Ganhou!!!") 
+			pulaLinha()
+			break
+		}
+
+
+		if (RespostaUsuario != NUM) { 
+			mostra("Perdeu :(")
+			document.write("<br>")
+			mostra("O certo é " + NUM)
+			pulaLinha()
+		}
+		
+	}
+	
+	else {
+		alert("Só números de 1 a 10 !!!")
+	}
+
+	
+	var RespostaUsuario = prompt ("Tente outra vez! Adivinhe um número de 1 a 10")
+	
+}
+
+mostra("Se perdeu recarregue a página :~~ ") 
+</script>
